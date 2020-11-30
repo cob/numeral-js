@@ -42,7 +42,9 @@ var numeralFactory = function () {
             output;
 
         // Multiply up by precision, round accurately, then divide and use native toFixed():
-        output = (roundingFunction(value + 'e+' + precision) / power).toFixed(precision);
+        // output = (roundingFunction(value + 'e+' + precision) / power).toFixed(precision);
+        var valueToRound = value.toString().indexOf('e') >= 0 ? (value  *  power) : (value + 'e+' + precision);
+        output = (roundingFunction(valueToRound) / power).toFixed(precision);
 
         if (optionals) {
             optionalsRegExp = new RegExp('0{1,' + optionals + '}$');
@@ -364,7 +366,6 @@ var numeralFactory = function () {
         if (value === 0 && zeroFormat !== null) {
             return zeroFormat;
         } else {
-            var isExponent = 'number' === typeof value && value.toString().match(/e[+-]/);
             // see if we should use parentheses for negative number or if we should prefix with a sign
             // if both are present we default to parentheses
             if (format.indexOf('(') > -1) {
@@ -433,7 +434,7 @@ var numeralFactory = function () {
             precision = format.split('.')[1];
             thousands = format.indexOf(',');
 
-            if (precision && !isExponent) {
+            if (precision) {
                 if (precision.indexOf('[') > -1) {
                     precision = precision.replace(']', '');
                     precision = precision.split('[');
@@ -454,9 +455,7 @@ var numeralFactory = function () {
                     d = '';
                 }
             } else {
-                // don't case exponents to a fixed value, just cast them to strings
-                if (isExponent) w = value.toString();
-                else w = toFixed(value, 0, roundingFunction);
+                w = toFixed(value, 0, roundingFunction);
             }
 
             // format negative number

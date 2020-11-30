@@ -1,6 +1,6 @@
 {
-  "name": "@elastic/numeral",
-  "version": "2.5.0",
+  "name": "@cob/numeral",
+  "version": "2.5.1",
   "description": "Fork of numeraljs for use in Kibana",
   "authors": [
     "Adam Draper <adamwdraper@gmail.com> (http://github.com/adamwdraper)",
@@ -17,10 +17,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elastic/numeral-js.git"
+    "url": "git+https://github.com/cob/numeral-js.git"
   },
   "bugs": {
-    "url": "https://github.com/elastic/numeral-js/issues"
+    "url": "https://github.com/cob/numeral-js/issues"
   },
   "license": "MIT",
   "devDependencies": {

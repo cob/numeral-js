@@ -9,6 +9,6 @@ interface Numeral {
 // eslint-disable-next-line no-var
 declare var numeral: Numeral;
 
-declare module '@elastic/numeral' {
+declare module '@cob/numeral' {
   export = numeral;
 }

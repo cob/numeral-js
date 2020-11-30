@@ -1,6 +1,6 @@
 {
   "name": "@cob/numeral",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "description": "Fork of numeraljs for use in Kibana",
   "authors": [
     "Adam Draper <adamwdraper@gmail.com> (http://github.com/adamwdraper)",
